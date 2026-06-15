@@ -90,3 +90,12 @@ Users are stored in-memory using a `HashMap`. Data is not persisted across resta
 ```bash
 ./mvnw test
 ```
+
+## CI/CD
+
+GitHub Actions runs on every push and pull request to `main`:
+
+1. **test** — builds and runs all tests with Java 21 (Amazon Corretto)
+2. **deploy** — builds a Docker image and pushes to Docker Hub (on push to `main` only)
+
+Required GitHub secrets: `DOCKER_USERNAME`, `DOCKER_PASSWORD`.
